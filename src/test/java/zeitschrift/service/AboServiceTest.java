@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import zeitschrift.model.Kunde;
 import zeitschrift.model.Produkt;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class AboServiceTest {
 
@@ -27,7 +27,7 @@ class AboServiceTest {
 
         long aboNummer = aboService.aboAbschliessen(kunde, produkt);
 
-        assertTrue(aboNummer >= 10000000L);
-        assertTrue(aboNummer <= 19999999L);
+        assertThat(aboNummer).isGreaterThanOrEqualTo(10000000L);
+        assertThat(aboNummer).isLessThanOrEqualTo(19999999L);
     }
 }
