@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import zeitschrift.model.AboNummer;
+import zeitschrift.model.Abonnement;
 import zeitschrift.model.Kunde;
 import zeitschrift.model.Produkt;
 
@@ -23,6 +24,12 @@ class AboServiceTest {
         AboNummer aboNummer = aboService.aboAbschliessen(kunde, produkt);
 
         assertThat(aboNummer).isNotNull();
+
+        Abonnement abonnement = aboService.aboDetails(aboNummer);
+
+        assertThat(abonnement.getAboNummer()).isEqualTo(aboNummer);
+        assertThat(abonnement.getProdukt()).isEqualTo(produkt);
+        assertThat(abonnement.getKunde()).isEqualTo(kunde);
     }
 
     private Produkt standardProdukt() {
