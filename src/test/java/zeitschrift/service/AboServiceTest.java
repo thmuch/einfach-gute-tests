@@ -1,15 +1,18 @@
 package zeitschrift.service;
 
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import zeitschrift.model.Kunde;
 import zeitschrift.model.Produkt;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class AboServiceTest {
 
     @Test
-    void aboAbschliessen() {
+    void aboAbschliessen_liefert_gültige_AboNummer() {
 
         Kunde kunde = standardKunde();
         Produkt produkt = standardProdukt();
