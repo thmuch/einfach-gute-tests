@@ -3,6 +3,7 @@ package zeitschrift.service;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
+import zeitschrift.model.AboNummer;
 import zeitschrift.model.Kunde;
 import zeitschrift.model.Produkt;
 
@@ -19,10 +20,9 @@ class AboServiceTest {
 
         AboService aboService = new AboService();
 
-        long aboNummer = aboService.aboAbschliessen(kunde, produkt);
+        AboNummer aboNummer = aboService.aboAbschliessen(kunde, produkt);
 
-        assertThat(aboNummer).isGreaterThanOrEqualTo(10000000L);
-        assertThat(aboNummer).isLessThanOrEqualTo(19999999L);
+        assertThat(aboNummer).isNotNull();
     }
 
     private Produkt standardProdukt() {
