@@ -30,6 +30,19 @@ class AboServiceTest {
         // Then (Assert)
 
         assertThat(aboNummer).isNotNull();
+    }
+
+    @Test
+    void aboDetails_liefert_gespeicherte_Daten_zur_AboNummer() {
+
+        // Given
+
+        Kunde kunde = standardKunde();
+        Produkt produkt = standardProdukt();
+
+        AboService aboService = new AboService();
+
+        AboNummer aboNummer = aboService.aboAbschliessen(kunde, produkt);
 
         // When
 
