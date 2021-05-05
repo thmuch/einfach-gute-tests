@@ -1,5 +1,6 @@
 package zeitschrift.service;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import zeitschrift.model.Kunde;
 import zeitschrift.model.Produkt;
@@ -8,20 +9,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class AboServiceTest {
 
-    @Test
-    void aboAbschliessen() {
+    private Kunde kunde;
+    private Produkt produkt;
 
-        Kunde kunde = new Kunde();
+    @BeforeEach
+    void setup() {
+
+        kunde = new Kunde();
 
         kunde.setVorname("Thomas");
         kunde.setNachname("Much");
         kunde.setKundennummer(2L);
         kunde.setSapKundennummer(11000002L);
 
-        Produkt produkt = new Produkt();
+        produkt = new Produkt();
 
         produkt.setProduktNummer(1234L);
         produkt.setBezeichnung("Java Magazin");
+    }
+
+    @Test
+    void aboAbschliessen() {
 
         AboService aboService = new AboService();
 
