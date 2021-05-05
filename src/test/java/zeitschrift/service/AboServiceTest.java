@@ -16,16 +16,26 @@ class AboServiceTest {
     @Test
     void aboAbschliessen_liefert_gültige_AboNummer() {
 
+        // Given (Arrange)
+
         Kunde kunde = standardKunde();
         Produkt produkt = standardProdukt();
 
         AboService aboService = new AboService();
 
+        // When (Act)
+
         AboNummer aboNummer = aboService.aboAbschliessen(kunde, produkt);
+
+        // Then (Assert)
 
         assertThat(aboNummer).isNotNull();
 
+        // When
+
         Abonnement abonnement = aboService.aboDetails(aboNummer);
+
+        // Then
 
         assertThat(abonnement.getAboNummer()).isEqualTo(aboNummer);
         assertThat(abonnement.getProdukt()).isEqualTo(produkt);
