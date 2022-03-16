@@ -1,9 +1,9 @@
-package zeitschrift.model;
+package zeitschriftenverlag;
 
 public class Produkt {
 
     private long produktNummer;
-    private String bezeichnung;
+    private String beschreibung;
 
     public long getProduktNummer() {
         return produktNummer;
@@ -13,11 +13,11 @@ public class Produkt {
         this.produktNummer = produktNummer;
     }
 
-    public String getBezeichnung() {
-        return bezeichnung;
+    public String getBeschreibung() {
+        return beschreibung;
     }
 
-    public void setBezeichnung(String bezeichnung) {
-        this.bezeichnung = bezeichnung;
+    public void setBeschreibung(String beschreibung) {
+        this.beschreibung = beschreibung;
     }
 }
