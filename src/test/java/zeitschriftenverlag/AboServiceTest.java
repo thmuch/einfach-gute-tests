@@ -10,15 +10,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 class AboServiceTest {
 
     @Test
-//    @DisplayName("aboAbschliessen gibt gueltige AboNummer zurück")
-    void aboAbschliessen_gibt_gueltige_AboNummer_zurück() {
+//    @DisplayName("aboAbschliessen gibt gueltige AboNummer zurueck")
+    void aboAbschliessen_gibt_gueltige_AboNummer_zurueck() {
 
         // Given (Arrange)
 
-        AboService aboService = new AboService();
-
-        Kunde kunde = standardKunde();
+        Kunde kunde = standardKunde(); // .mitSchuhgroesse(38).build();
         Produkt produkt = standardProdukt();
+
+        AboService aboService = new AboService();
 
         // When (Act)
 
@@ -30,28 +30,26 @@ class AboServiceTest {
 //        assertTrue(aboNummer <= 19999999L);
 //        assertThat(aboNummer.achtstellig()).isGreaterThanOrEqualTo(10000000L);
 //        assertThat(aboNummer.achtstellig()).isLessThanOrEqualTo(19999999L);
-
         assertThat(aboNummer).isNotNull();
     }
 
-    private Kunde standardKunde() {
-
-        // TODO: Test Data Builder? evtl. kombioniert mit Object Mother
-        Kunde kunde = new Kunde();
-
-        kunde.setKundennummer(12000000L);
-        kunde.setName("Thomas");
-        return kunde;
-    }
-
-
     private Produkt standardProdukt() {
 
+        // TODO: Test Data Builder kombiniert mit Object Mother Pattern
         Produkt produkt = new Produkt();
 
         produkt.setProduktNummer(98765L);
-        produkt.setBeschreibung("Java Magazin");
+        produkt.setBeschreibung("Java Magazine");
 
         return produkt;
+    }
+
+    private Kunde standardKunde() {
+        Kunde kunde = new Kunde();
+
+        kunde.setKundennummer(12340000L);
+        kunde.setName("Thomas");
+
+        return kunde;
     }
 }
